@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<project name="csv" default="all" basedir=".">
+
+    <property name="srcDir" value="src" />
+    <property name="classDir" value="classes" />
+    <property name="packageName"
+              value="jp.ac.wakhok.tomoharu.csv" />
+    <property name="apiDocsDir" value="docs/api" />
+
+    <target name="init">
+        <tstamp/>
+    </target>
+
+    <target name="compile" depends="init">
+        <mkdir dir="${classDir}" />
+        <javac srcdir="${srcDir}"
+               destdir="${classDir}" />
+    </target>
+
+    <target name="jar" depends="compile">
+        <jar jarfile="csv.jar"
+             basedir="${classDir}" />
+    </target>
+
+    <target name="javadoc" depends="init">
+        <mkdir dir="${apiDocsDir}" />
+        <javadoc packagenames="jp.ac.wakhok.tomoharu.csv"
+                 sourcepath="${srcDir}"
+                 destdir="${apiDocsDir}" />
+    </target>
+
+    <target name="all" depends="jar, javadoc">
+        <zip zipfile="../csv.zip" basedir=".."
+             includes="csv/**"
+             excludes="**/classes/**" />
+    </target>
+
+</project>
