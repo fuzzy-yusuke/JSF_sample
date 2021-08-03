@@ -1,17 +1,20 @@
-<%-- 
-    Document   : page2
-    Created on : 2021/08/03, 14:43:21
-    Author     : YUSUKE FUJII
---%>
+<%@ page contentType="text/html; charset=Shift_JIS" %>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <title>JSF: パラメータの受け渡しテスト</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>JSF: パラメータの受け渡しテスト</h1>
+        
+        <f:view>
+            <h:form id="searchForm">
+                <h:outputText id="word" value="#{ParameterBean.word}" />
+            </h:form>
+        </f:view>
     </body>
 </html>
